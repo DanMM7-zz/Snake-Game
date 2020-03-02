@@ -1,12 +1,5 @@
-"""
-Snake game
-"""
-
 import pygame
-import pygame.freetype
-
 import random
-import time
 
 
 # Initialize pygame
@@ -96,41 +89,6 @@ class Snake:
                     self.draw_circle((0, 0, 0), (positions[0][0] + 5, positions[0][1] + 5), 3)
                     self.draw_circle((0, 0, 0), (positions[0][0] + 15, positions[0][1] + 5), 3)
 
-    def initialize_game(self):
-        """
-        Initialize the game
-        """
-
-        # Draw black rectangles
-        for i in range(0, 550, 22):
-            for j in range(0, 550, 22):
-                self.draw_rectangle((0, 0, 0), (i, j, 20, 20))
-
-        # Generate food
-        self.random_generate_food()
-
-        # Draw snake
-        self.draw_snake(self.snake, eyes=True)
-
-    def random_generate_food(self):
-        """
-        Randomly generate food for the snake
-        """
-
-        if not self.food:
-            for position in self.snake:
-                x_position = random.randrange(0, 550, 22)
-                y_position = random.randrange(0, 550, 22)
-
-                if position != (x_position, y_position, 20, 20):
-                    # Append food position to list
-                    self.food += (x_position, y_position, 20, 20)
-                    # Draw food
-                    self.draw_rectangle((255, 0, 0), (x_position, y_position, 20, 20))
-                    break
-        else:
-            self.draw_rectangle((255, 0, 0), self.food)
-
     def move_snake(self, direction):
         """
         Updates the position of the snake
@@ -211,6 +169,23 @@ class Snake:
                 self.snake[i] = self.snake[i - 1]
             self.snake[0] = (self.snake[0][0] + 22, self.snake[0][1], self.snake[0][2], self.snake[0][3])
 
+    def random_generate_food(self):
+        """
+        Randomly generate food for the snake
+        """
+
+        if not self.food:
+            for position in self.snake:
+                x_position = random.randrange(0, 550, 22)
+                y_position = random.randrange(0, 550, 22)
+
+                if position != (x_position, y_position, 20, 20):
+                    self.food += (x_position, y_position, 20, 20)
+                    self.draw_rectangle((255, 0, 0), (x_position, y_position, 20, 20))
+                    break
+        else:
+            self.draw_rectangle((255, 0, 0), self.food)
+
     def check_if_snake_eats_food(self):
         """
         Check if the snake eats his food. If
@@ -234,6 +209,22 @@ class Snake:
 
             self.food = ()
             self.random_generate_food()
+
+    def initialize_game(self):
+        """
+        Initialize the game
+        """
+
+        # Draw black rectangles
+        for i in range(0, 550, 22):
+            for j in range(0, 550, 22):
+                self.draw_rectangle((0, 0, 0), (i, j, 20, 20))
+
+        # Generate food
+        self.random_generate_food()
+
+        # Draw snake
+        self.draw_snake(self.snake, eyes=True)
 
     def reset_game(self):
         # Set the start positions of the snake
@@ -268,7 +259,9 @@ class Snake:
                     pygame.quit()
                     exit()
 
+                # Check if one of the arrow keys was pressed
                 if event.type == pygame.KEYDOWN:
+                    # If a key was pressed then change the direction the snake is moving
                     if event.key == pygame.K_UP:
                         self.direction_of_movement = "UP"
                     elif event.key == pygame.K_DOWN:
