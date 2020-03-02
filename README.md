@@ -1,5 +1,5 @@
 # Snake-Game
-The classic snake game made with python
+The classic snake game made with Python
 
 ## Getting Started
 
