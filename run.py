@@ -227,6 +227,13 @@ class Snake:
         self.draw_snake(self.snake, eyes=True)
 
     def reset_game(self):
+        """
+        Reset the game
+        """
+
+        # Print the score
+        print("Score: {}".format(len(self.snake) - 2))
+
         # Set the start positions of the snake
         self.snake = [(88, 264, 20, 20), (66, 264, 20, 20)]
 
