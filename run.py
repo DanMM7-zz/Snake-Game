@@ -9,7 +9,7 @@ pygame.init()
 class Snake:
     def __init__(self):
         """
-        Snake the game in python with pygame
+        Snake the game in Python made with pygame
         """
 
         # Set height and width of the application and set the background to white
