@@ -188,12 +188,14 @@ class Snake:
 
         if not self.food:
             for position in self.snake:
-                x_position = random.randrange(0, 550, 22)
-                y_position = random.randrange(0, 550, 22)
+                # Generate X and Y coordinates
+                x_coordinate = random.randrange(0, 550, 22)
+                y_coordinate = random.randrange(0, 550, 22)
 
-                if position != (x_position, y_position, 20, 20):
-                    self.food += (x_position, y_position, 20, 20)
-                    self.draw_rectangle((255, 0, 0), (x_position, y_position, 20, 20))
+                # Check if the coordinates aren't the same as that of the snake
+                if position != (x_coordinate, y_coordinate, 20, 20):
+                    self.food += (x_coordinate, y_coordinate, 20, 20)
+                    self.draw_rectangle((255, 0, 0), (x_coordinate, y_coordinate, 20, 20))
                     break
         else:
             self.draw_rectangle((255, 0, 0), self.food)
