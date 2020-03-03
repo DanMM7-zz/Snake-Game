@@ -111,8 +111,11 @@ class Snake:
                 if position == (self.snake[0][0], self.snake[0][1] - 22, self.snake[0][2], self.snake[0][3]):
                     return self.reset_game()
 
+            # Replace every snake position with the position that comes before it
             for i in range(len(self.snake) - 1, 0, -1):
                 self.snake[i] = self.snake[i - 1]
+
+            # Change the position of the snake's head
             self.snake[0] = (self.snake[0][0], self.snake[0][1] - 22, self.snake[0][2], self.snake[0][3])
 
         elif direction == "DOWN":
@@ -129,8 +132,11 @@ class Snake:
                 if position == (self.snake[0][0], self.snake[0][1] + 22, self.snake[0][2], self.snake[0][3]):
                     return self.reset_game()
 
+            # Replace every snake position with the position that comes before it
             for i in range(len(self.snake) - 1, 0, -1):
                 self.snake[i] = self.snake[i - 1]
+
+            # Change the position of the snake's head
             self.snake[0] = (self.snake[0][0], self.snake[0][1] + 22, self.snake[0][2], self.snake[0][3])
 
         elif direction == "LEFT":
@@ -147,8 +153,11 @@ class Snake:
                 if position == (self.snake[0][0] - 22, self.snake[0][1], self.snake[0][2], self.snake[0][3]):
                     return self.reset_game()
 
+            # Replace every snake position with the position that comes before it
             for i in range(len(self.snake) - 1, 0, -1):
                 self.snake[i] = self.snake[i - 1]
+
+            # Change the position of the snake's head
             self.snake[0] = (self.snake[0][0] - 22, self.snake[0][1], self.snake[0][2], self.snake[0][3])
 
         elif direction == "RIGHT":
@@ -165,8 +174,11 @@ class Snake:
                 if position == (self.snake[0][0] + 22, self.snake[0][1], self.snake[0][2], self.snake[0][3]):
                     return self.reset_game()
 
+            # Replace every snake position with the position that comes before it
             for i in range(len(self.snake) - 1, 0, -1):
                 self.snake[i] = self.snake[i - 1]
+
+            # Change the position of the snake's head
             self.snake[0] = (self.snake[0][0] + 22, self.snake[0][1], self.snake[0][2], self.snake[0][3])
 
     def random_generate_food(self):
