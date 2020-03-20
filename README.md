@@ -11,10 +11,16 @@ Firstly, ensure you have Python 3.x installed
 
 ### Installing
 
-Then all you need to do is to clone this repository by running
+Clone this repository by running
 
 ```
 git clone https://github.com/SvenKortekaas04/Snake-Game.git
+```
+
+Make sure you have the right dependencies installed
+
+```
+pip install -r requirements.txt
 ```
 
 Then run
