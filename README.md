@@ -1,9 +1,6 @@
 # Snake-Game
 The classic snake game made with Python
 
-## Built With
-* pygame
-
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -31,6 +28,9 @@ Then run
 ```
 python run.py
 ```
+
+## Built With
+* pygame
 
 ## Authors
 
